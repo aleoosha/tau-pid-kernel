@@ -1,0 +1,28 @@
+{
+    "name": "aleoosha/tau-pid-kernel",
+    "description": "Fixed-point PID calculation and adaptive tuning kernel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { "Aleoosha\\TauPid\\Kernel\\": "src/" }
+    },
+    "require": {
+        "php": "^8.1",
+        "aleoosha/support-types": "dev-main",
+        "aleoosha/tau-pid-contracts": "dev-main"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.0",
+        "mockery/mockery": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/aleoosha/support-types" },
+        { "type": "vcs", "url": "https://github.com/aleoosha/tau-pid-contracts" }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
