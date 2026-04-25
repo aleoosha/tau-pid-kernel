@@ -37,12 +37,10 @@ final class PidCalculator implements PidCalculatorInterface
             $dTerm = $error->subtract($prevError)->divide($dt)->multiply($settings->kd);
         }
 
-        // Output = (P + I + D) * 100 (matching your original logic)
-        $multiplier = FixedPoint::fromInt(100);
-        $output = $pOut = $pTerm->add($integral)->add($dTerm)->multiply($multiplier);
+        $output = $pTerm->add($integral)->add($dTerm);
 
         return new FixedPidResult(
-            output: $this->clamp($output, FixedPoint::fromInt(100)),
+            output: $this->clamp($output, FixedPoint::fromInt(1)),
             lastError: $error,
             integral: $integral,
             timestampMs: (int)(microtime(true) * 1000),
